@@ -17,6 +17,9 @@ public class AIPrototype : ModuleRules
 			"AIModule",
 			"StateTreeModule",
 			"GameplayStateTreeModule",
+			"GameplayAbilities",
+			"GameplayTags",
+			"GameplayTasks",
 			"UMG",
 			"Slate"
 		});
