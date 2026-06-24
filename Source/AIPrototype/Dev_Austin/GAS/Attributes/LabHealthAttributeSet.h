@@ -14,7 +14,7 @@ struct FGameplayEffectModCallbackData;
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_ThreeParams(FAttributeChangedEvent, UAttributeSet*, AttributeSet, float, OldValue, float, NewValue);
 
 /**
- * 
+ * Health attribute set for handling gameplay effects/abilities with GAS
  */
 UCLASS()
 class AIPROTOTYPE_API ULabHealthAttributeSet : public UAttributeSet

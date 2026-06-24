@@ -7,14 +7,10 @@
 #include "LabAbilitySystemComponent.generated.h"
 
 /**
- * 
+ * Custom ability system component for AAbilitiesLabCharacter class
  */
 UCLASS()
 class AIPROTOTYPE_API ULabAbilitySystemComponent : public UAbilitySystemComponent
 {
 	GENERATED_BODY()
-	
-	
-	
-	
 };
