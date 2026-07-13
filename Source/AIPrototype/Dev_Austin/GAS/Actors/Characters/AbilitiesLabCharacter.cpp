@@ -16,7 +16,6 @@ AAbilitiesLabCharacter::AAbilitiesLabCharacter()
 
 	// Construct GAS
 	LabAbilitySystemComp = CreateDefaultSubobject<ULabAbilitySystemComponent>(TEXT("AbilitySystem"));
-	HealthSet = CreateDefaultSubobject<ULabHealthAttributeSet>(TEXT("HealthSet"));
 }
 
 // Called when the game starts or when spawned
@@ -53,16 +52,6 @@ void AAbilitiesLabCharacter::InitAbilitySystem()
 
 	// Init ability system comp
 	LabAbilitySystemComp->InitAbilityActorInfo(this, this);
-
-	// Init attribute sets
-	UAbilitySystemGlobals* abilitySystemGlobals = IGameplayAbilitiesModule::Get().GetAbilitySystemGlobals();
-	FAttributeSetInitter* attributeSetInitter = abilitySystemGlobals ? abilitySystemGlobals->GetAttributeSetInitter() : nullptr;
-	if (attributeSetInitter) {
-		attributeSetInitter->InitAttributeSetDefaults(LabAbilitySystemComp, *CharacterName.ToString(), 1, true);
-	}
-	else {
-		UE_LOG(LogTemp, Error, TEXT("AbilitiesCharacter::InitAbilitySystem : No valid FAttributeSetInitter detected. Check if data table is setup correctly."));
-	}
 }
 
 UAbilitySystemComponent* AAbilitiesLabCharacter::GetAbilitySystemComponent() const 

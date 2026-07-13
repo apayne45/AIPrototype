@@ -48,9 +48,6 @@ public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Abilities)
 	TObjectPtr<ULabAbilitySystemComponent> LabAbilitySystemComp;
 
-	UPROPERTY()
-	TObjectPtr<ULabHealthAttributeSet> HealthSet;
-
 public:
 	virtual UAbilitySystemComponent* GetAbilitySystemComponent() const override;
 
