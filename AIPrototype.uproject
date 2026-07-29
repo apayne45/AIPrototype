@@ -1,6 +1,6 @@
 {
 	"FileVersion": 3,
-	"EngineAssociation": "{65FF438E-44BD-08C2-1715-24A94B9AA633}",
+	"EngineAssociation": "{8D8C2BFE-4153-FEAE-8362-CBAEFCBE2DC6}",
 	"Category": "",
 	"Description": "",
 	"Modules": [
@@ -34,6 +34,22 @@
 		},
 		{
 			"Name": "GameplayAbilities",
+			"Enabled": true
+		},
+		{
+			"Name": "ModelContextProtocol",
+			"Enabled": true
+		},
+		{
+			"Name": "MCPClientToolset",
+			"Enabled": true
+		},
+		{
+			"Name": "Terminal",
+			"Enabled": true
+		},
+		{
+			"Name": "AllToolsets",
 			"Enabled": true
 		}
 	]
