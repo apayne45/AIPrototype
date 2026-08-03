@@ -8,6 +8,8 @@
 #include "AbilitiesLabCharacter.generated.h"
 
 // fwd declarations
+struct FInputActionValue;
+enum class EGameplayEffectReplicationMode : uint8;
 class ULabAbilitySystemComponent;
 class ULabHealthAttributeSet;
 
@@ -27,14 +29,38 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
-	// Called to bind functionality to input
-	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
-
 	virtual void PostInitializeComponents() override;
 
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
+
+	virtual void PossessedBy(AController* NewController) override;
+
+// Movement
+protected:
+	/** Called for movement input */
+	void Move(const FInputActionValue& Value);
+
+	/** Called for looking input */
+	void Look(const FInputActionValue& Value);
+
+public:
+	/** Handles move inputs from either controls or UI interfaces */
+	UFUNCTION(BlueprintCallable, Category = "Input")
+	virtual void DoMove(float Right, float Forward);
+
+	/** Handles look inputs from either controls or UI interfaces */
+	UFUNCTION(BlueprintCallable, Category = "Input")
+	virtual void DoLook(float Yaw, float Pitch);
+
+	/** Handles jump pressed inputs from either controls or UI interfaces */
+	UFUNCTION(BlueprintCallable, Category = "Input")
+	virtual void DoJumpStart();
+
+	/** Handles jump pressed inputs from either controls or UI interfaces */
+	UFUNCTION(BlueprintCallable, Category = "Input")
+	virtual void DoJumpEnd();
 
 // Character identifier
 protected:
@@ -47,6 +73,10 @@ public:
 public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Abilities)
 	TObjectPtr<ULabAbilitySystemComponent> LabAbilitySystemComp;
+
+protected:
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Abilities)
+	EGameplayEffectReplicationMode AbilityReplicationMode;
 
 public:
 	virtual UAbilitySystemComponent* GetAbilitySystemComponent() const override;

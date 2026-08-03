@@ -14,6 +14,7 @@ There is no README in this repo.
 @architecture.md
 @branches.md
 @guidance.md
+@gas.md
 
 `build.md` and `architecture.md` cover the shared template/codebase and change rarely. 
 `guidance.md` provides rules in how to design and plan changes, while keeping language clear and concise
