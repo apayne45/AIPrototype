@@ -1,6 +1,5 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
-
 #include "Dev_Austin/GAS/Actors/Characters/AbilitiesLabCharacter.h"
 #include "AbilitySystemGlobals.h"
 #include "Components/CapsuleComponent.h"
@@ -17,6 +16,7 @@ AAbilitiesLabCharacter::AAbilitiesLabCharacter()
 	PrimaryActorTick.bCanEverTick = true;
 
 	// Construct GAS
+	AbilityReplicationMode = EGameplayEffectReplicationMode::Mixed;
 	LabAbilitySystemComp = CreateDefaultSubobject<ULabAbilitySystemComponent>(TEXT("AbilitySystem"));
 	LabAbilitySystemComp->SetIsReplicated(true);
 	LabAbilitySystemComp->SetReplicationMode(AbilityReplicationMode);
